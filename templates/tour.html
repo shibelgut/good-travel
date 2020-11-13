@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block container %}
+
+    <section class="mt-3 pb-5">
+      {% for key, value in tours.items() %} {% if key == id %}
+      <h1 class="display-4 mt-4"><b>{{ value.title }} {{ value.stars }}&#9733;</b></h1>
+      <!-- HERO -->
+      <p class="lead"><b>{{ value.country }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ value.nights }} ночей</b></p>
+      <img src="{{ value.picture }}" class="w-75" alt="">
+      <p class="my-4 w-75">{{ value.description }}</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScYMG5lc8yBZk6_TvBhBSn_comT2wvT0bXfY6mA9t9acaVlAQ/viewform?embedded=true" class="btn btn-success btn-lg">Купить тур за {{ value.price }}</a>
+
+      {% endif %} {% endfor %}
+    </section>
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block container %}
+    <!-- HERO -->
+    <section class="jumbotron text-center mt-4" style="background-image: linear-gradient(180deg,rgba(255,245,215,0.8),rgba(255,245,215,0.8)),url('https://source.unsplash.com/user/mkallur/l4m_o4aFOn8/1600x400'); background-position: center center">
+      <h1 class="display-4">Всякие туры</h1>
+      <p class="lead">Для тех, кого отвлекают дома</p>
+      <p class="mt-5 w-50 mx-auto">Лучшие направления, где никто не будет вам мешать сидеть на берегу и изучать программирование, дизайн, разработку игр и управление продуктами</p>
+    </section>
+    <!-- CARDS -->
+    <div class="row mt-5">
+      {% for key, value in tours.items() %}
+      <div class="col-4 d-flex">
+        <div class="card mb-4 flex-fill">
+          <div class="embed-responsive embed-responsive-16by9">
+             <img class="card-img-top embed-responsive-item" src="{{ value.picture }}" alt="" />
+          </div>          
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ value.country }}: {{ value.title }}</h2>
+            <p class="card-text">{{ value.description|truncate(100) }}</p>
+            <a href="/tours/{{ key }}" class="btn btn-sm btn-primary">Подробнее</a>
+            <div class="row">
+              <div class="col-10 card-text mt-3"><b>{{ value.date }}, {{ value.nights }} ночей, {{ value.price }} Р</b></div>
+              <div class="col-2 card-text text-right mt-3"><b>{{ value.stars }}&#9733;</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}
+
