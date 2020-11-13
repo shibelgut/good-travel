@@ -55,4 +55,5 @@ def tours_id(id_tour):
     return output
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
